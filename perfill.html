@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>MI PERFIL</h1>
+    </header>
+
+    <section id="sobre-mi">
+      <h2>Sobre Mi</h2>
+      <p>
+        Mi nombre es Moisés López. Soy un apasionado diseñador gráfico y
+        fotógrafo. Me encanta capturar momentos únicos y plasmarlos en imágenes
+        creativas.
+      </p>
+      <!-- Contenido de la sección "Sobre Mi" -->
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiencia</h2>
+      <p>
+        He trabajado en diversas agencias de diseño como diseñador gráfico y
+        fotógrafo, creando piezas visuales impactantes para diferentes clientes.
+      </p>
+      <!-- Contenido de la sección "Experiencia" -->
+    </section>
+
+    <section id="educacion">
+      <h2>Educación</h2>
+      <p>
+        Bachiller en Ciencias obtenido en 2017. Además, he realizado cursos
+        especializados en diseño gráfico y fotografía.
+      </p>
+
+      <!-- Contenido de la sección "Educación" -->
+    </section>
+
+    <div id="contacto" class="form-container">
+      <h3>Contacto</h3>
+      <form id="contactForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required /><br /><br />
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea><br /><br />
+
+        <button type="submit" id="enviarBtn">Enviar</button>
+      </form>
+      <p id="confirmacion" style="display: none">
+        ¡Formulario enviado correctamente!
+      </p>
+    </div>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let nombre = document.getElementById("nombre").value;
+          let email = document.getElementById("email").value;
+          let mensaje = document.getElementById("mensaje").value;
+
+          if (
+            nombre.trim() === "" ||
+            mensaje.trim() === "" ||
+            !validateEmail(email)
+          ) {
+            alert("Por favor, complete todos los campos correctamente.");
+            return;
+          }
+
+          // Simulación de envío del formulario a través de una solicitud HTTP POST
+          // Aquí se puede agregar la lógica para enviar los datos a una URL de destino
+
+          document.getElementById("contactForm").reset();
+          document.getElementById("confirmacion").style.display = "block";
+        });
+
+      function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+    </script>
+  </body>
+</html>
